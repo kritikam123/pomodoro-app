@@ -26,8 +26,26 @@ function App() {
     "Text me!"
 
   ];
+  //Encouragement message updater
+  useEffect(() => {
+    let messageInterval: NodeJS.Timeout;
 
+    if(isRunning) {
+      const messages = isBreak ? breakMessage : cheerMessage;
+      setEncouragement(messages[0]); // set first message initially
+      let index = 1
 
+      messageInterval = setInterval(() => {
+        setEncouragement(messages[index]);
+        index = (index + 1) % messages.length;
+      }, 4000); // 4 seconds
+    } else {
+      setEncouragement("");
+    }
+    return () => clearInterval(messageInterval);
+  }, [isRunning, isBreak]);
+
+//Countdown timer
   useEffect( () => {
     let timer: NodeJS.Timeout;
     if(isRunning && timeLeft > 0)
@@ -80,8 +98,8 @@ function App() {
       </button>
     </div>
 
-    <p>
-      You can do it!
+    <p className={`encouragement-text ${!isRunning ? "hidden" : ""}`}>
+      {encouragement}
     </p>
     <h1 className="home-timer">{formatTime(timeLeft)}</h1>
 
