@@ -1,7 +1,19 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+
+import playImg from "./assets/play.png";
+import resetImg from "./assets/reset.png";
+import workBtnClicked from "./assets/work-clicked.png";
+import workBtn from "./assets/work.png";
+import breakBtnClicked from "./assets/break-clicked.png";
+import breakBtn from "./assets/break.png";
+import idleGif from "./assets/idle.gif";
+import workGif from "./assets/work.gif";
+import breakGif from "./assets/break.gif";
+import meowSound from "./assets/meow.mp3";
+import closeBtn from "./assets/close.png";
 
 function App() {
 
@@ -79,6 +91,7 @@ function App() {
       setTimeLeft(isBreak ? 5 * 60 : 25*60);
     }
   }
+  const containerClass = `home-container ${isRunning ? "background-green" : ""}`;
 
   return (
     <div style={{position: 'relative'}}> 
