@@ -19,8 +19,12 @@ function App() {
 
   const[timeLeft, setTimeLeft] = useState(25*60);
   const[isRunning, setIsRunning] = useState(false);
+  const [breakButtonImage, setBreakButtonImage] = useState(breakBtn);
+  const [workButtonImage, setWorkButtonImage] = useState(workBtn);
+  const [gifImage, setGifImage] = useState(idleGif);
   const [isBreak, setIsBreak] = useState(false);
   const [encouragement, setEncouragement] = useState("");
+  const [image, setImage] = useState(playImg);
 
   const cheerMessage = [
     "You Can Do It!",
@@ -69,6 +73,11 @@ function App() {
     return() => clearInterval(timer);
   },[isRunning,timeLeft]);
 
+  //set initial switch mode to false
+  useEffect(() => {
+    switchMode:(false);
+  }, []);
+
 
   const formatTime = (seconds: number): string => {
     const m = Math.floor(seconds / 60).toString().padStart(2, '0');
@@ -80,34 +89,40 @@ function App() {
   const switchMode = (breakMode: boolean) => {
     setIsBreak(breakMode);
     setIsRunning(false);
+    setBreakButtonImage(breakMode ? breakBtnClicked : breakBtn);
+    setWorkButtonImage(breakMode ? workBtn : workBtnClicked);
+    setWorkButtonImage(workBtn);
     setTimeLeft(breakMode ? 5 * 60 : 25 * 60);
+    setGifImage(idleGif);
   }
 
   const handleClick = () => {
     if(!isRunning) {
       setIsRunning(true);
+      setGifImage(isBreak ? breakGif : workGif);
     }else{
       setIsRunning(false);
       setTimeLeft(isBreak ? 5 * 60 : 25*60);
+      setGifImage(idleGif);
+      setImage(playImg);
     }
   }
-  const containerClass = `home-container ${isRunning ? "background-green" : ""}`;
-
+   const containerClass = `home-container ${isRunning ? "background-blue" : ""}`;
   return (
-    <div style={{position: 'relative'}}> 
+    <div className={containerClass}style={{position: 'relative'}}> 
    <div>
-    <button className="closeButton">
-      Close
+    <button className="close-button">
+      <img src={closeBtn} alt = "Close"/>
     </button>
    </div>
 
    <div className="home-content">
     <div className="home-controls">
       <button className="image-button" onClick={ () => switchMode(false)}>
-        Work
+        <img src={workButtonImage} alt="Work"/>
       </button>
       <button className="image-button" onClick ={ () => switchMode(true)}>
-        Break
+        <img src={breakButtonImage} alt="Break"/>
       </button>
     </div>
 
@@ -115,9 +130,9 @@ function App() {
       {encouragement}
     </p>
     <h1 className="home-timer">{formatTime(timeLeft)}</h1>
-
+    <img src={gifImage} alt="Timer Status" className="gif-image" />
     <button className="home-button" onClick={handleClick}>
-      Start
+      <img src={image} alt="Button Icon"/>
     </button>
 
    </div>

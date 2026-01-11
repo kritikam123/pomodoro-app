@@ -6,7 +6,9 @@ function createMainWindow() {
     const mainWindow = new BrowserWindow({
         title: 'WorkFaster',
         width: 400,
-        height: 430,
+        height: 200,
+        frame: false,
+        titleBarStyle: 'hidden'
     });
     
   win.loadURL("http://localhost:5173");
