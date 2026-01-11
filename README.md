@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+🕒 Work Faster – A Cute Pomodoro Timer App with React + Electron
+Hi, I’m Su Lei! 👋
+In this beginner-friendly tutorial, I’ll guide you step by step through building a cute and simple Pomodoro-style timer app using React. Then, we’ll wrap it with Electron.js so you can run it as a real desktop application! 🖥️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Don’t worry if you’re new to all this—we’ll take it slow and make it fun!
 
-Currently, two official plugins are available:
+🚀 What You’ll Learn
+✅ How to create a React app with TypeScript
+✅ How to integrate Electron for a desktop experience
+✅ How to test and build your app locally
+✅ How to keep your project clean and organized
+🧰 Prerequisites
+Node.js installed
+(It comes with npx, which we’ll use to create the project)
+🛠️ Step-by-Step Guide
+1. Create Your React App
+Open your terminal and run:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npx create-react-app work-faster --template typescript
+This creates a new folder called work-faster with a pre-configured React + TypeScript setup. Then move into your new project folder:
 
-## React Compiler
+cd work-faster
+2. Install Electron
+Still inside the project folder, run:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+npm install --save-dev electron
+3. Test the React App
+Before we wire up Electron, make sure React works:
 
-## Expanding the ESLint configuration
+npm run start
+This should open the app in your browser at http://localhost:3000
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🎉 If you see the React welcome screen, you're all set!
