@@ -1,33 +1,73 @@
-🕒 Work Faster – A Cute Pomodoro Timer App with React + Electron
-Hi, I’m Su Lei! 👋
-In this beginner-friendly tutorial, I’ll guide you step by step through building a cute and simple Pomodoro-style timer app using React. Then, we’ll wrap it with Electron.js so you can run it as a real desktop application! 🖥️
+🕒 WorkFaster
 
-Don’t worry if you’re new to all this—we’ll take it slow and make it fun!
+WorkFaster is a simple Pomodoro timer app built using React (Vite) and Electron.
+It helps users focus on work and take short breaks in between.
 
-🚀 What You’ll Learn
-✅ How to create a React app with TypeScript
-✅ How to integrate Electron for a desktop experience
-✅ How to test and build your app locally
-✅ How to keep your project clean and organized
-🧰 Prerequisites
-Node.js installed
-(It comes with npx, which we’ll use to create the project)
-🛠️ Step-by-Step Guide
-1. Create Your React App
-Open your terminal and run:
+✨ What this app does
 
-npx create-react-app work-faster --template typescript
-This creates a new folder called work-faster with a pre-configured React + TypeScript setup. Then move into your new project folder:
+⏱️ 25-minute Work timer
 
-cd work-faster
-2. Install Electron
-Still inside the project folder, run:
+☕ 5-minute Break timer
 
-npm install --save-dev electron
-3. Test the React App
-Before we wire up Electron, make sure React works:
+🔁 Switch between Work and Break modes
 
-npm run start
-This should open the app in your browser at http://localhost:3000
+💬 Shows encouraging messages
 
-🎉 If you see the React welcome screen, you're all set!
+🎞️ Displays different GIFs for work, break, and idle
+
+🖥️ Runs as a desktop application
+
+🛠️ Built With
+
+React
+
+Vite
+
+Electron
+
+TypeScript
+
+CSS
+
+📂 Folder Structure
+src/
+│── assets/      # Images, GIFs, sounds
+│── App.tsx      # Main logic
+│── App.css      # Styling
+electron/
+│── electron.cjs # Electron window setup
+
+🚀 How to Run the App
+Step 1: Install dependencies
+npm install
+
+Step 2: Start React (Vite)
+npm run dev
+
+Step 3: Start Electron (new terminal)
+npm run electron
+
+🧠 How it works (simple)
+
+React controls the timer and UI
+
+The timer runs every second
+
+Messages and GIFs change based on the mode
+
+Electron opens the app in a desktop window
+
+🌱 Future Improvements
+
+Automatic mode switching
+
+Custom timer settings
+
+Notifications
+
+Dark mode
+
+👩‍💻 Author
+
+Kritika Maharjan
+BCA Student, Nepal 🇳🇵
